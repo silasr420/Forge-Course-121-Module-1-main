@@ -27,7 +27,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(ModBlocks.AZURITE_BLOCK.get());
-        // dropSelf(ModBlocks.MAGIC_BLOCK.get());
+        dropSelf(ModBlocks.MAGIC_BLOCK.get());
 
         this.add(ModBlocks.AZURITE_ORE.get(),
                 block -> createOreDrop(ModBlocks.AZURITE_ORE.get(), ModItems.RAW_AZURITE.get()));
@@ -49,6 +49,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.AZURITE_FENCE_GATE.get());
         this.dropSelf(ModBlocks.AZURITE_WALL.get());
         this.dropSelf(ModBlocks.AZURITE_TRAPDOOR.get());
+
+        this.dropSelf(ModBlocks.AZURITE_LAMP.get());
 
         this.add(ModBlocks.AZURITE_DOOR.get(),
                 block -> createDoorTable(ModBlocks.AZURITE_DOOR.get()));

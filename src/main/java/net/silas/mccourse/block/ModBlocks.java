@@ -1,6 +1,7 @@
 package net.silas.mccourse.block;
 
 import net.silas.mccourse.MCCourseMod;
+import net.silas.mccourse.block.custom.AzuriteLampBlock;
 import net.silas.mccourse.block.custom.MagicBlock;
 import net.silas.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -48,9 +49,9 @@ public class ModBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> AZURITE_PRESSURE_PLATE = registerBlock("azurite_pressure_plate",
-            () -> new PressurePlateBlock(BlockSetType.STONE, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+            () -> new PressurePlateBlock(BlockSetType.STONE, BlockBehaviour.Properties.of().strength(0.6f)));
     public static final RegistryObject<Block> AZURITE_BUTTON = registerBlock("azurite_button",
-            () -> new ButtonBlock(BlockSetType.STONE, 10, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
+            () -> new ButtonBlock(BlockSetType.STONE, 10, BlockBehaviour.Properties.of().strength(0.2f).noCollission()));
 
 
     public static final RegistryObject<Block> AZURITE_FENCE = registerBlock("azurite_fence",
@@ -61,9 +62,13 @@ public class ModBlocks {
             () -> new WallBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> AZURITE_DOOR = registerBlock("azurite_door",
-            () -> new DoorBlock(BlockSetType.COPPER, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noOcclusion()));
+            () -> new DoorBlock(BlockSetType.POLISHED_BLACKSTONE, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noOcclusion()));
     public static final RegistryObject<Block> AZURITE_TRAPDOOR = registerBlock("azurite_trapdoor",
-            () -> new TrapDoorBlock(BlockSetType.COPPER, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noOcclusion()));
+            () -> new TrapDoorBlock(BlockSetType.POLISHED_BLACKSTONE, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noOcclusion()));
+
+    public static final RegistryObject<Block> AZURITE_LAMP = registerBlock("azurite_lamp",
+            () -> new AzuriteLampBlock(BlockBehaviour.Properties.of().strength(1.5f).sound(SoundType.GLASS)
+                    .lightLevel(state -> state.getValue(AzuriteLampBlock.CLICKED) ? 15 : 0)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

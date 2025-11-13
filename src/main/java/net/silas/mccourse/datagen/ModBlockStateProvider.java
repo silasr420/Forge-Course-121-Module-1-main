@@ -1,5 +1,8 @@
 package net.silas.mccourse.datagen;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.fml.common.Mod;
 import net.silas.mccourse.MCCourseMod;
 import net.silas.mccourse.block.ModBlocks;
 import net.minecraft.data.PackOutput;
@@ -9,7 +12,9 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.silas.mccourse.block.custom.AzuriteLampBlock;
 
+@Mod.EventBusSubscriber(modid = MCCourseMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, MCCourseMod.MOD_ID, exFileHelper);
@@ -45,6 +50,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.AZURITE_PRESSURE_PLATE);
         blockItem(ModBlocks.AZURITE_FENCE_GATE);
         blockItem(ModBlocks.AZURITE_TRAPDOOR, "_bottom");
+
+        customLamp();
+
+
+    }
+
+    private void customLamp() {
+        getVariantBuilder(ModBlocks.AZURITE_LAMP.get()).forAllStates(state -> {
+            if(state.getValue(AzuriteLampBlock.CLICKED)) {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("azurite_lamp_on",
+                        ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + "azurite_lamp_on")))};
+            } else {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("azurite_lamp_off",
+                        ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + "azurite_lamp_off")))};
+            }
+        });
+        simpleBlockItem(ModBlocks.AZURITE_LAMP.get(), models().cubeAll("azurite_lamp_on",
+                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" +"azurite_lamp_on")));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

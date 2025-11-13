@@ -25,6 +25,24 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ONION.get());
 
                         output.accept(ModItems.AURORA_ASHES.get());
+
+                        output.accept(ModItems.AZURITE_SWORD.get());
+                        output.accept(ModItems.AZURITE_PICKAXE.get());
+                        output.accept(ModItems.AZURITE_SHOVEL.get());
+                        output.accept(ModItems.AZURITE_AXE.get());
+                        output.accept(ModItems.AZURITE_HOE.get());
+
+                        output.accept(ModItems.AZURITE_PAXEL.get());
+                        output.accept(ModItems.AZURITE_HAMMER.get());
+
+                        output.accept(ModItems.AZURITE_HELMET.get());
+                        output.accept(ModItems.AZURITE_CHESTPLATE.get());
+                        output.accept(ModItems.AZURITE_LEGGINGS.get());
+                        output.accept(ModItems.AZURITE_BOOTS.get());
+
+                        output.accept(ModItems.AZURITE_HORSE_ARMOR.get());
+                        output.accept(ModItems.DECIBEL_SMITHING_TEMPLATE.get());
+
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> AZURITE_BLOCKS_TAB = CREATIVE_MODE_TABS.register("azurite_blocks_tab",
@@ -52,6 +70,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.AZURITE_DOOR.get());
                         output.accept(ModBlocks.AZURITE_TRAPDOOR.get());
+
+                        output.accept(ModBlocks.AZURITE_LAMP.get());
                     }).build());
 
 

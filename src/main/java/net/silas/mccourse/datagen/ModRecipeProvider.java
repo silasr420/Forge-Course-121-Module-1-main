@@ -1,5 +1,8 @@
 package net.silas.mccourse.datagen;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.silas.mccourse.MCCourseMod;
 import net.silas.mccourse.block.ModBlocks;
 import net.silas.mccourse.item.ModItems;
@@ -38,15 +41,133 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('H', ModItems.AURORA_ASHES.get())
                 .unlockedBy("has_aurora_ashes", has(ModItems.AURORA_ASHES.get())).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHAINSAW.get())
+                .pattern("  I")
+                .pattern("OI ")
+                .pattern("AO ")
+                .define('A', ModItems.AZURITE.get())
+                .define('O', Items.ORANGE_DYE)
+                .define('I', Items.IRON_INGOT)
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.AZURITE_SWORD.get())
+                .pattern(" A ")
+                .pattern(" A ")
+                .pattern(" S ")
+                .define('A', ModItems.AZURITE.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.AZURITE_PICKAXE.get())
+                .pattern("AAA")
+                .pattern(" S ")
+                .pattern(" S ")
+                .define('A', ModItems.AZURITE.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.AZURITE_SHOVEL.get())
+                .pattern(" A ")
+                .pattern(" S ")
+                .pattern(" S ")
+                .define('A', ModItems.AZURITE.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.AZURITE_AXE.get())
+                .pattern("AA ")
+                .pattern("AS ")
+                .pattern(" S ")
+                .define('A', ModItems.AZURITE.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.AZURITE_HOE.get())
+                .pattern("AA ")
+                .pattern(" S ")
+                .pattern(" S ")
+                .define('A', ModItems.AZURITE.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.AZURITE.get(), 9)
                 .requires(ModBlocks.AZURITE_BLOCK.get())
                 .unlockedBy("has_azurite_block", has(ModBlocks.AZURITE_BLOCK.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.AZURITE_PAXEL.get())
+                .pattern("PAH")
+                .pattern(" S ")
+                .pattern(" S ")
+                .define('A', ModItems.AZURITE_AXE.get())
+                .define('P', ModItems.AZURITE_PICKAXE.get())
+                .define('H', ModItems.AZURITE_SHOVEL.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_heavy_core", has(Items.HEAVY_CORE)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.AZURITE_HAMMER.get())
+                .pattern("AHA")
+                .pattern(" S ")
+                .pattern(" S ")
+                .define('A', ModBlocks.AZURITE_BLOCK.get())
+                .define('S', Items.STICK)
+                .define('H', Items.HEAVY_CORE)
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AZURITE_HELMET.get())
+                .pattern("AAA")
+                .pattern("A A")
+                .pattern("   ")
+                .define('A', ModItems.AZURITE.get())
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AZURITE_CHESTPLATE.get())
+                .pattern("A A")
+                .pattern("AAA")
+                .pattern("AAA")
+                .define('A', ModItems.AZURITE.get())
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AZURITE_LEGGINGS.get())
+                .pattern("AAA")
+                .pattern("A A")
+                .pattern("A A")
+                .define('A', ModItems.AZURITE.get())
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AZURITE_BOOTS.get())
+                .pattern("   ")
+                .pattern("A A")
+                .pattern("A A")
+                .define('A', ModItems.AZURITE.get())
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DECIBEL_SMITHING_TEMPLATE.get(), 2)
+                .pattern("DSD")
+                .pattern("DND")
+                .pattern("DDD")
+                .define('S', ModItems.DECIBEL_SMITHING_TEMPLATE.get())
+                .define('D', Items.DIAMOND)
+                .define('N', Items.NOTE_BLOCK)
+                .unlockedBy("has_decibel_smithing_template", has(ModItems.DECIBEL_SMITHING_TEMPLATE.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.AZURITE_LAMP.get())
+                .pattern(" A ")
+                .pattern("AGA")
+                .pattern(" A ")
+                .define('A', ModItems.AZURITE.get())
+                .define('G', Items.GLOWSTONE)
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
+
 
 
 
 
         oreSmelting(recipeOutput, AZURITE_SMELTABLES, RecipeCategory.MISC, ModItems.AZURITE.get(), 0.25f, 200, "azurite");
         oreBlasting(recipeOutput, AZURITE_SMELTABLES, RecipeCategory.MISC, ModItems.AZURITE.get(), 0.25f, 100, "azurite");
+
+        trimSmithing(recipeOutput, ModItems.DECIBEL_SMITHING_TEMPLATE.get(),
+                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "decibel"));
 
         stairBuilder(ModBlocks.AZURITE_STAIRS.get(), Ingredient.of(ModItems.AZURITE.get())).group("azurite")
                         .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
