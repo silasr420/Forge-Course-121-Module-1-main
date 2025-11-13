@@ -52,6 +52,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.AZURITE_HORSE_ARMOR.get());
         basicItem(ModItems.DECIBEL_SMITHING_TEMPLATE.get());
 
+        basicItem(ModItems.TRIAL_DETECTOR.get());
+        basicItem(ModItems.DATA_TABLET.get());
+
         trimmedArmorItem(ModItems.AZURITE_HELMET);
         trimmedArmorItem(ModItems.AZURITE_CHESTPLATE);
         trimmedArmorItem(ModItems.AZURITE_LEGGINGS);

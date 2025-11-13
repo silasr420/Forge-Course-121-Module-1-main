@@ -2,6 +2,7 @@ package net.silas.mccourse;
 
 import com.mojang.logging.LogUtils;
 import net.silas.mccourse.block.ModBlocks;
+import net.silas.mccourse.component.ModDataComponentTypes;
 import net.silas.mccourse.item.ModCreativeModeTabs;
 import net.silas.mccourse.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -37,6 +38,8 @@ public class MCCourseMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModDataComponentTypes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

@@ -158,6 +158,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('G', Items.GLOWSTONE)
                 .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DATA_TABLET.get())
+                .pattern(" I ")
+                .pattern("IGI")
+                .pattern(" I ")
+                .define('I', Items.IRON_INGOT)
+                .define('G', Items.GLASS_PANE)
+                .unlockedBy("has_glass_pane", has(Items.GLASS_PANE)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TRIAL_DETECTOR.get())
+                .pattern(" SM")
+                .pattern(" SS")
+                .pattern("I  ")
+                .define('I', Items.IRON_INGOT)
+                .define('S', Items.STICK)
+                .define('M', Items.TRIAL_KEY)
+                .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+
 
 
 

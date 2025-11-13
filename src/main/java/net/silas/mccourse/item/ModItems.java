@@ -83,7 +83,10 @@ public class ModItems {
     public static final RegistryObject<Item> DECIBEL_SMITHING_TEMPLATE = ITEMS.register("decibel_armor_trim_smithing_template",
             () -> SmithingTemplateItem.createArmorTrimTemplate(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "decibel")));
 
-
+    public static final RegistryObject<Item> TRIAL_DETECTOR = ITEMS.register("trial_detector",
+            () -> new TrialDetectorItem(new Item.Properties().durability(120).stacksTo(1)));
+    public static final RegistryObject<Item> DATA_TABLET = ITEMS.register("data_tablet",
+            () -> new DataTabletItem(new Item.Properties().stacksTo(1)));
 
 
 

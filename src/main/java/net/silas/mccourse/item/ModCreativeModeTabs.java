@@ -43,6 +43,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.AZURITE_HORSE_ARMOR.get());
                         output.accept(ModItems.DECIBEL_SMITHING_TEMPLATE.get());
 
+                        output.accept(ModItems.TRIAL_DETECTOR.get());
+                        output.accept(ModItems.DATA_TABLET.get());
+
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> AZURITE_BLOCKS_TAB = CREATIVE_MODE_TABS.register("azurite_blocks_tab",
@@ -72,6 +75,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.AZURITE_TRAPDOOR.get());
 
                         output.accept(ModBlocks.AZURITE_LAMP.get());
+
+
+
                     }).build());
 
 
