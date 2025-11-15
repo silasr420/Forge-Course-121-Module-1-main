@@ -1,0 +1,6 @@
+{
+  "parent": "mccourse:item/tnt_bow",
+  "textures": {
+    "layer0": "mccourse:item/tnt_bow_pulling_0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "mccourse:item/arrow_tnt_side",
+    "top": "minecraft:block/tnt_top",
+    "bottom": "minecraft:block/tnt_bottom"
+  }
+}

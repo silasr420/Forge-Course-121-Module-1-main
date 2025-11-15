@@ -174,6 +174,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', Items.STICK)
                 .define('M', Items.TRIAL_KEY)
                 .unlockedBy("has_azurite", has(ModItems.AZURITE.get())).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.TNT_BOW.get())
+                .pattern("NTN")
+                .pattern("TBT")
+                .pattern("NTN")
+                .define('T', Items.TNT)
+                .define('B', Items.BOW)
+                .define('N', Items.NETHERITE_SCRAP)
+                .unlockedBy("has_tnt", has(Items.BOW)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TNT_ARROW.get(), 4)
+                .pattern(" A ")
+                .pattern("ATA")
+                .pattern(" A ")
+                .define('T', Items.TNT)
+                .define('A', Items.ARROW)
+                .unlockedBy("has_tnt", has(Items.BOW)).save(recipeOutput);
 
 
 

@@ -45,6 +45,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.AZURITE_CHESTPLATE.get())
                 .add(ModItems.AZURITE_LEGGINGS.get())
                 .add(ModItems.AZURITE_BOOTS.get())
+                .add(ModItems.TNT_BOW.get())
                 .add(ModItems.CHAINSAW.get());
 
         tag(ItemTags.SWORD_ENCHANTABLE)
@@ -107,6 +108,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         tag(ItemTags.FOOT_ARMOR_ENCHANTABLE)
                 .add(ModItems.AZURITE_BOOTS.get());
+
+        tag(ItemTags.BOW_ENCHANTABLE)
+                .add(ModItems.TNT_BOW.get());
 
         this.tag(ItemTags.TRIM_MATERIALS)
                 .add(ModItems.AZURITE.get());

@@ -25,13 +25,7 @@ public class ModItems {
     public static final RegistryObject<Item> CHAINSAW = ITEMS.register("chainsaw",
             () -> new ChainsawItem(new Item.Properties().durability(32)));
     public static final RegistryObject<Item> ONION = ITEMS.register("onion",
-            () -> new Item(new Item.Properties().food(ModFoodProperties.ONION)) {
-                @Override
-                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-                    pTooltipComponents.add(Component.translatable("tooltip.mccourse.onion.tooltip.1"));
-                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
-                }
-            });
+            () -> new Item(new Item.Properties().food(ModFoodProperties.ONION)));
     public static final RegistryObject<Item> AURORA_ASHES = ITEMS.register("aurora_ashes",
             () -> new FuelItem(new Item.Properties(), 800));
 
@@ -87,6 +81,12 @@ public class ModItems {
             () -> new TrialDetectorItem(new Item.Properties().durability(120).stacksTo(1)));
     public static final RegistryObject<Item> DATA_TABLET = ITEMS.register("data_tablet",
             () -> new DataTabletItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> TNT_BOW = ITEMS.register("tnt_bow",
+            () -> new TntBowItem(new Item.Properties().stacksTo(1).durability(150)));
+
+    public static final RegistryObject<Item> TNT_ARROW = ITEMS.register("tnt_arrow",
+            () -> new Item(new Item.Properties().stacksTo(64)));
 
 
 
