@@ -49,12 +49,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TNT_BOW.get());
                         output.accept(ModItems.TNT_ARROW.get());
 
-                    }).build());
+                        output.accept(ModItems.ONION_SEEDS.get());
 
-    public static final RegistryObject<CreativeModeTab> AZURITE_BLOCKS_TAB = CREATIVE_MODE_TABS.register("azurite_blocks_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.AZURITE_BLOCK.get())).withTabsBefore(AZURITE_ITEMS_TAB.getId())
-                    .title(Component.translatable("creativetab.azurite_blocks"))
-                    .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.UP_HOUSETOP_MUSIC_DISC.get());
+
+                        output.accept(ModItems.ICE_STAFF.get());
+
+
                         output.accept(ModBlocks.AZURITE_BLOCK.get());
 
                         output.accept(ModBlocks.AZURITE_ORE.get());
@@ -78,6 +79,15 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.AZURITE_TRAPDOOR.get());
 
                         output.accept(ModBlocks.AZURITE_LAMP.get());
+
+                        output.accept(ModBlocks.BLUEBELL.get());
+
+                        output.accept(ModBlocks.COLORED_LEAVES.get());
+
+                        output.accept(ModBlocks.SMOOTH_STONE_WALL.get());
+                        output.accept(ModBlocks.PEDESTAL.get());
+
+
 
 
 

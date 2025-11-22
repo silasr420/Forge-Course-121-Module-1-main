@@ -1,6 +1,7 @@
 package net.silas.mccourse.datagen;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.fml.common.Mod;
 import net.silas.mccourse.MCCourseMod;
@@ -13,6 +14,9 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.silas.mccourse.block.custom.AzuriteLampBlock;
+import net.silas.mccourse.block.custom.OnionCropBlock;
+
+import java.util.function.Function;
 
 @Mod.EventBusSubscriber(modid = MCCourseMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -39,7 +43,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         fenceBlock(((FenceBlock) ModBlocks.AZURITE_FENCE.get()), blockTexture(ModBlocks.AZURITE_BLOCK.get()));
         fenceGateBlock(((FenceGateBlock) ModBlocks.AZURITE_FENCE_GATE.get()), blockTexture(ModBlocks.AZURITE_BLOCK.get()));
-        wallBlock(((WallBlock) ModBlocks.AZURITE_WALL.get()), blockTexture(ModBlocks.AZURITE_BLOCK.get()));
+        wallBlock((WallBlock) ModBlocks.AZURITE_WALL.get(),
+                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/azurite_block"));
+
+        wallBlock((WallBlock) ModBlocks.SMOOTH_STONE_WALL.get(),
+                ResourceLocation.fromNamespaceAndPath("minecraft", "block/smooth_stone"));
+
 
         doorBlockWithRenderType(((DoorBlock) ModBlocks.AZURITE_DOOR.get()), modLoc("block/azurite_door_bottom"), modLoc("block/azurite_door_top"), "cutout");
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.AZURITE_TRAPDOOR.get()), modLoc("block/azurite_trapdoor"), true, "cutout");
@@ -53,9 +62,39 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         customLamp();
 
+        makeCrop(((CropBlock) ModBlocks.ONION_CROP.get()), "onion_crop_stage", "onion_crop_stage");
+
+        simpleBlock(ModBlocks.BLUEBELL.get(),
+                models().cross(blockTexture(ModBlocks.BLUEBELL.get()).getPath(), blockTexture(ModBlocks.BLUEBELL.get())).renderType("cutout"));
+        simpleBlock(ModBlocks.POTTED_BLUEBELL.get(),
+                models().singleTexture("potted_bluebell", ResourceLocation.parse("flower_pot_cross"), "plant",
+                        blockTexture(ModBlocks.BLUEBELL.get())).renderType("cutout"));
+
+        leavesBlock(ModBlocks.COLORED_LEAVES);
+
 
     }
 
+    private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(),
+                models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
+                        "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+
+    public void makeCrop(CropBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((OnionCropBlock) block).getAgeProperty()),
+                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + textureName + state.getValue(((OnionCropBlock) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
+    }
     private void customLamp() {
         getVariantBuilder(ModBlocks.AZURITE_LAMP.get()).forAllStates(state -> {
             if(state.getValue(AzuriteLampBlock.CLICKED)) {
@@ -66,6 +105,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" + "azurite_lamp_off")))};
             }
         });
+
         simpleBlockItem(ModBlocks.AZURITE_LAMP.get(), models().cubeAll("azurite_lamp_on",
                 ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, "block/" +"azurite_lamp_on")));
     }

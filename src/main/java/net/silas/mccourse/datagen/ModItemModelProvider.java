@@ -6,6 +6,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.armortrim.TrimMaterial;
 import net.minecraft.world.item.armortrim.TrimMaterials;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.silas.mccourse.MCCourseMod;
 import net.silas.mccourse.block.ModBlocks;
@@ -52,6 +53,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.AZURITE_HORSE_ARMOR.get());
         basicItem(ModItems.DECIBEL_SMITHING_TEMPLATE.get());
 
+        basicItem(ModItems.ONION_SEEDS.get());
+
         basicItem(ModItems.TRIAL_DETECTOR.get());
         //basicItem(ModItems.DATA_TABLET.get());
 
@@ -63,7 +66,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         buttonItem(ModBlocks.AZURITE_BUTTON, ModBlocks.AZURITE_BLOCK);
         fenceItem(ModBlocks.AZURITE_FENCE, ModBlocks.AZURITE_BLOCK);
-        wallItem(ModBlocks.AZURITE_WALL, ModBlocks.AZURITE_BLOCK);
+        wallItem(ModBlocks.AZURITE_WALL, ModBlocks.AZURITE_BLOCK.get());
+        wallItem(ModBlocks.SMOOTH_STONE_WALL, Blocks.SMOOTH_STONE);
 
         simpleBlockItem(ModBlocks.AZURITE_DOOR);
 
@@ -75,6 +79,18 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         handheldItem(ModItems.AZURITE_PAXEL);
         handheldItem(ModItems.AZURITE_HAMMER);
+
+        simpleBlockBlockItem(ModBlocks.BLUEBELL);
+
+        basicItem(ModItems.UP_HOUSETOP_MUSIC_DISC.get());
+
+
+    }
+
+    private ItemModelBuilder simpleBlockBlockItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
@@ -134,11 +150,13 @@ public class ModItemModelProvider extends ItemModelProvider {
                         "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
-    public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
-        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
-                .texture("wall",  ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,
-                        "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+    public void wallItem(RegistryObject<Block> block, Block baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                        mcLoc("block/wall_inventory"))
+                .texture("wall", ResourceLocation.fromNamespaceAndPath(
+                        MCCourseMod.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock).getPath()));
     }
+
 
     private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),

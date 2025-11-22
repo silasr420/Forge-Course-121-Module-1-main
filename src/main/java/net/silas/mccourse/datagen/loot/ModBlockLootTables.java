@@ -1,6 +1,11 @@
 package net.silas.mccourse.datagen.loot;
 
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraftforge.fml.common.Mod;
 import net.silas.mccourse.block.ModBlocks;
+import net.silas.mccourse.block.custom.OnionCropBlock;
 import net.silas.mccourse.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -48,12 +53,26 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.AZURITE_FENCE.get());
         this.dropSelf(ModBlocks.AZURITE_FENCE_GATE.get());
         this.dropSelf(ModBlocks.AZURITE_WALL.get());
+        this.dropSelf(ModBlocks.SMOOTH_STONE_WALL.get());
         this.dropSelf(ModBlocks.AZURITE_TRAPDOOR.get());
 
         this.dropSelf(ModBlocks.AZURITE_LAMP.get());
 
         this.add(ModBlocks.AZURITE_DOOR.get(),
                 block -> createDoorTable(ModBlocks.AZURITE_DOOR.get()));
+
+        LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.ONION_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OnionCropBlock.AGE, 3));
+        this.add(ModBlocks.ONION_CROP.get(), this.createCropDrops(ModBlocks.ONION_CROP.get(),
+                ModItems.ONION.get(), ModItems.ONION_SEEDS.get(), lootItemConditionBuilder));
+
+        this.dropSelf(ModBlocks.BLUEBELL.get());
+        this.add(ModBlocks.POTTED_BLUEBELL.get(),
+                createPotFlowerItemTable(ModBlocks.BLUEBELL.get()));
+
+        this.dropSelf(ModBlocks.COLORED_LEAVES.get());
+
+        this.dropSelf(ModBlocks.PEDESTAL.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

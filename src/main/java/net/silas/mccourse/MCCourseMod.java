@@ -1,6 +1,13 @@
 package net.silas.mccourse;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.common.BiomeManager;
 import net.silas.mccourse.block.ModBlocks;
 import net.silas.mccourse.component.ModDataComponentTypes;
 import net.silas.mccourse.item.ModCreativeModeTabs;
@@ -18,6 +25,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.silas.mccourse.sound.ModSounds;
 import net.silas.mccourse.util.ModItemProperties;
 import org.slf4j.Logger;
 
@@ -40,6 +48,8 @@ public class MCCourseMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModSounds.register(modEventBus);
+
         ModDataComponentTypes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
@@ -51,7 +61,16 @@ public class MCCourseMod {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            ComposterBlock.COMPOSTABLES.put(ModItems.ONION.get(), 0.65f);
+            ComposterBlock.COMPOSTABLES.put(ModItems.ONION_SEEDS.get(), 0.35f);
 
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.BLUEBELL.get(), 0.65f);
+
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.COLORED_LEAVES.get(), 0.65f);
+
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BLUEBELL.getId(), ModBlocks.POTTED_BLUEBELL);
+        });
     }
 
     // Add the example block item to the building blocks tab
@@ -74,6 +93,17 @@ public class MCCourseMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
+        }
+
+        @SubscribeEvent
+        public static void registerColoredBlocks(RegisterColorHandlersEvent.Block event) {
+            event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null &&
+                    pPos != null ? BiomeColors.getAverageFoliageColor(pLevel, pPos) : FoliageColor.getDefaultColor(), ModBlocks.COLORED_LEAVES.get());
+        }
+
+        @SubscribeEvent
+        public static void registerColoredItem(RegisterColorHandlersEvent.Item event) {
+            event.register((pStack, pTintIndex) -> FoliageColor.getDefaultColor(), ModBlocks.COLORED_LEAVES.get());
         }
     }
 

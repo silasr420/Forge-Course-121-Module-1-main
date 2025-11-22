@@ -31,7 +31,14 @@
   "item.mccourse.tnt_bow": "TNT Bow",
   "item.mccourse.tnt_arrow": "Arrow TNT",
 
+  "item.mccourse.onion_seeds": "Onion Seeds",
+
   "block.mccourse.azurite_block": "Block of Azurite",
+
+  "item.mccourse.up_housetop_music_disk": "Up on the Housetop Music Disk",
+  "item.mccourse.up_housetop_music_disk.desc": "Kevin MacLeod - Up On A Housetop",
+
+  "item.mccourse.ice_staff": "Ice Staff",
 
   "block.mccourse.azurite_ore": "Azurite Ore",
   "block.mccourse.azurite_deepslate_ore": "Deepslate Azurite Ore",
@@ -50,10 +57,20 @@
   "block.mccourse.azurite_fence_gate": "Azurite Fence Gate",
   "block.mccourse.azurite_wall": "Azurite Wall",
 
+  "block.mccourse.smooth_stone_wall": "Smooth Stone Wall",
+  "block.mccourse.pedestal": "Pedestal",
+
   "block.mccourse.azurite_door": "Azurite Door",
   "block.mccourse.azurite_trapdoor": "Azurite Trapdoor",
 
   "block.mccourse.azurite_lamp": "Azurite Lamp",
+
+  "block.mccourse.onion_crop": "Onion Crop",
+
+  "block.mccourse.bluebell": "Bluebell",
+  "block.mccourse.potted_bluebell": "Potted Bluebell",
+
+  "block.mccourse.colored_leaves": "Colored Leaves",
 
 
   "tooltip.mccourse.chainsaw.tooltip.shift": "Press §eShift§r for more Information!",
@@ -61,6 +78,17 @@
 
   "tooltip.mccourse.magic_block.tooltip.1": "Mysterious!",
 
-  "creativetab.azurite_items": "Azurite Items",
-  "creativetab.azurite_blocks": "Azurite Blocks"
+  "creativetab.azurite_items": "Modded Items",
+  "creativetab.azurite_blocks": "Modded Blocks",
+
+  "sounds.mccourse.chainsaw_cut": "Chainsaw Cuts",
+  "sounds.mccourse.chainsaw_pull": "Chainsaw Revs",
+
+  "sounds.mccourse.magic_block_break": "Block Broken",
+  "sounds.mccourse.magic_block_step": "Footsteps",
+  "sounds.mccourse.magic_block_place": "Block Placed",
+  "sounds.mccourse.magic_block_hit": "Block Breaking",
+  "sounds.mccourse.magic_block_fall": "Something Falls on a Block"
+
+
 }

@@ -3,6 +3,7 @@ package net.silas.mccourse.datagen;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.silas.mccourse.MCCourseMod;
 import net.silas.mccourse.block.ModBlocks;
 import net.silas.mccourse.item.ModItems;
@@ -12,6 +13,7 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.silas.mccourse.util.ModTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -190,6 +192,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('T', Items.TNT)
                 .define('A', Items.ARROW)
                 .unlockedBy("has_tnt", has(Items.BOW)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SMOOTH_STONE_WALL.get(), 6)
+                .pattern("   ")
+                .pattern("SSS")
+                .pattern("SSS")
+                .define('S', Blocks.SMOOTH_STONE)
+                .unlockedBy("has_smooth_stone", has(Items.SMOOTH_STONE)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PEDESTAL.get(), 1)
+                .pattern(" S ")
+                .pattern(" W ")
+                .pattern("SSS")
+                .define('S', Blocks.SMOOTH_STONE_SLAB)
+                .define('W', ModBlocks.SMOOTH_STONE_WALL.get())
+                .unlockedBy("has_smooth_stone_slab", has(Items.SMOOTH_STONE_SLAB)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PURPLE_DYE)
+                .requires(ModBlocks.BLUEBELL.get())
+                .unlockedBy("has_bluebell", has(ModBlocks.BLUEBELL.get())).save(recipeOutput);
 
 
 

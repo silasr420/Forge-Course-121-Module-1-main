@@ -1,7 +1,9 @@
 package net.silas.mccourse.datagen;
 
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.silas.mccourse.MCCourseMod;
+import net.silas.mccourse.block.ModBlocks;
 import net.silas.mccourse.item.ModItems;
 import net.silas.mccourse.util.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -22,6 +24,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+
+
         tag(ModTags.Items.TRANSFORMABLE_ITEMS)
                 .add(ModItems.AZURITE.get())
                 .add(Items.COAL)

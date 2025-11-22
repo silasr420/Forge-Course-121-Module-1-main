@@ -34,7 +34,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.AZURITE_FENCE_GATE.get())
                 .add(ModBlocks.AZURITE_WALL.get())
                 .add(ModBlocks.AZURITE_LAMP.get())
-                .add(ModBlocks.AZURITE_PRESSURE_PLATE.get());
+                .add(ModBlocks.AZURITE_PRESSURE_PLATE.get())
+                .add(ModBlocks.PEDESTAL.get())
+                .add(ModBlocks.SMOOTH_STONE_WALL.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.AZURITE_ORE.get())
@@ -55,9 +57,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.AZURITE_NETHER_ORE.get());
 
 
+
         this.tag(BlockTags.FENCES).add(ModBlocks.AZURITE_FENCE.get());
         this.tag(BlockTags.FENCE_GATES).add(ModBlocks.AZURITE_FENCE_GATE.get());
-        this.tag(BlockTags.WALLS).add(ModBlocks.AZURITE_WALL.get());
+        this.tag(BlockTags.WALLS)
+                .add(ModBlocks.SMOOTH_STONE_WALL.get())
+                .add(ModBlocks.AZURITE_WALL.get());
 
         this.tag(ModTags.Blocks.PAXEL_MINEABLE)
                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE)

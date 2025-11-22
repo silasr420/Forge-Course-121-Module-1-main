@@ -4,12 +4,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.silas.mccourse.MCCourseMod;
+import net.silas.mccourse.block.ModBlocks;
 import net.silas.mccourse.item.custom.*;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.silas.mccourse.sound.ModSounds;
 
 import java.util.List;
 
@@ -88,7 +90,14 @@ public class ModItems {
     public static final RegistryObject<Item> TNT_ARROW = ITEMS.register("tnt_arrow",
             () -> new Item(new Item.Properties().stacksTo(64)));
 
+    public static final RegistryObject<Item> ONION_SEEDS = ITEMS.register("onion_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.ONION_CROP.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> UP_HOUSETOP_MUSIC_DISC = ITEMS.register("up_housetop_music_disk",
+            () -> new Item(new Item.Properties().stacksTo(1).jukeboxPlayable(ModSounds.UP_HOUSETOP_KEY)));
+
+    public static final RegistryObject<Item> ICE_STAFF = ITEMS.register("ice_staff",
+            () -> new Item(new Item.Properties().stacksTo(1)));
 
 
     public static void register(IEventBus eventBus) {
