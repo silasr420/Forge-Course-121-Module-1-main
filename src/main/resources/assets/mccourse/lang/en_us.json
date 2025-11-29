@@ -40,6 +40,10 @@
 
   "item.mccourse.ice_staff": "Ice Staff",
 
+  "item.minecraft.potion.effect.festive_potion": "Potion of Festivity",
+  "item.minecraft.splash_potion.effect.festive_potion": "Splash Potion of Festivity",
+  "item.minecraft.lingering_potion.effect.festive_potion": "Lingering Potion of Festivity",
+
   "block.mccourse.azurite_ore": "Azurite Ore",
   "block.mccourse.azurite_deepslate_ore": "Deepslate Azurite Ore",
   "block.mccourse.azurite_end_ore": "End Azurite Ore",
@@ -72,6 +76,12 @@
 
   "block.mccourse.colored_leaves": "Colored Leaves",
 
+  "block.mccourse.ornament": "Ornaments",
+  "block.mccourse.christmas_lights_colored": "Colored Christmas Lights",
+  "block.mccourse.christmas_lights_white": "White Christmas Lights",
+
+  "block.minecraft.waxed_exposed_cut_copper_stairs": "Waxed Lightly Weathered Cut Copper Stairs",
+
 
   "tooltip.mccourse.chainsaw.tooltip.shift": "Press §eShift§r for more Information!",
   "tooltip.mccourse.chainsaw.tooltip.1": "This Chainsaw will cut down trees fast!",
@@ -88,7 +98,9 @@
   "sounds.mccourse.magic_block_step": "Footsteps",
   "sounds.mccourse.magic_block_place": "Block Placed",
   "sounds.mccourse.magic_block_hit": "Block Breaking",
-  "sounds.mccourse.magic_block_fall": "Something Falls on a Block"
+  "sounds.mccourse.magic_block_fall": "Something Falls on a Block",
+
+  "effect.mccourse.festive": "Festive"
 
 
 }

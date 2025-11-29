@@ -1,9 +1,11 @@
 package net.silas.mccourse.datagen.loot;
 
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.silas.mccourse.block.custom.OrnamentBlock;
 import net.silas.mccourse.block.ModBlocks;
 import net.silas.mccourse.block.custom.OnionCropBlock;
 import net.silas.mccourse.item.ModItems;
@@ -73,6 +75,35 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.COLORED_LEAVES.get());
 
         this.dropSelf(ModBlocks.PEDESTAL.get());
+
+        this.add(ModBlocks.ORNAMENT.get(), block -> {
+            LootPool.Builder pool = LootPool.lootPool()
+                    .setRolls(ConstantValue.exactly(1));
+
+            // Loop through possible ornament counts (1–4)
+            for (int i = 1; i <= 4; i++) {
+                pool.add(
+                        LootItem.lootTableItem(ModBlocks.ORNAMENT.get())
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(i)))
+                                .when(
+                                        LootItemBlockStatePropertyCondition
+                                                .hasBlockStateProperties(block)
+                                                .setProperties(
+                                                        StatePropertiesPredicate.Builder.properties()
+                                                                .hasProperty(OrnamentBlock.COUNT, i)
+                                                )
+                                )
+                );
+            }
+
+            return LootTable.lootTable().withPool(pool);
+        });
+
+        this.dropSelf(ModBlocks.CHRISTMAS_LIGHTS_COLORED.get());
+        this.dropSelf(ModBlocks.CHRISTMAS_LIGHTS_WHITE.get());
+
+
+
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

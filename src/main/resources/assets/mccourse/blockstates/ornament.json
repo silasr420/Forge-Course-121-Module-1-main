@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "count=1": { "model": "mccourse:block/ornament_1" },
+    "count=2": { "model": "mccourse:block/ornament_2" },
+    "count=3": { "model": "mccourse:block/ornament_3" },
+    "count=4": { "model": "mccourse:block/ornament_4" }
+  }
+}

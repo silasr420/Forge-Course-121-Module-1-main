@@ -2,10 +2,8 @@ package net.silas.mccourse.block;
 
 import net.minecraft.world.effect.MobEffects;
 import net.silas.mccourse.MCCourseMod;
-import net.silas.mccourse.block.custom.AzuriteLampBlock;
-import net.silas.mccourse.block.custom.MagicBlock;
-import net.silas.mccourse.block.custom.OnionCropBlock;
-import net.silas.mccourse.block.custom.PedestalBlock;
+import net.silas.mccourse.block.custom.OrnamentBlock;
+import net.silas.mccourse.block.custom.*;
 import net.silas.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -106,6 +104,17 @@ public class ModBlocks {
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
+
+    public static final RegistryObject<Block> ORNAMENT = registerBlock("ornament",
+            () -> new OrnamentBlock(BlockBehaviour.Properties.of().noCollission().noOcclusion()));
+
+    public static final RegistryObject<Block> CHRISTMAS_LIGHTS_COLORED = registerBlock("christmas_lights_colored",
+            () -> new GlowLichenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLOW_LICHEN).lightLevel(state -> 10).strength(0.05f)));
+
+    public static final RegistryObject<Block> CHRISTMAS_LIGHTS_WHITE = registerBlock("christmas_lights_white",
+            () -> new GlowLichenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLOW_LICHEN).lightLevel(state -> 10).strength(0.05f)));
+
+
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

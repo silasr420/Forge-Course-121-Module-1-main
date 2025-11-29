@@ -1,0 +1,17 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "mccourse:block/christmas_lights_colored",
+    "texture":  "mccourse:block/christmas_lights_colored"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0.1],
+      "to":   [16, 16, 0.1],
+      "faces": {
+        "north": { "texture": "#texture" },
+        "south": { "texture": "#texture" }
+      }
+    }
+  ]
+}

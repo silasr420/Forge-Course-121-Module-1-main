@@ -87,6 +87,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SMOOTH_STONE_WALL.get());
                         output.accept(ModBlocks.PEDESTAL.get());
 
+                        output.accept(ModBlocks.ORNAMENT.get());
+                        output.accept(ModBlocks.CHRISTMAS_LIGHTS_COLORED.get());
+                        output.accept(ModBlocks.CHRISTMAS_LIGHTS_WHITE.get());
+
 
 
 
