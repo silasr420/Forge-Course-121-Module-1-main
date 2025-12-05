@@ -36,7 +36,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.AZURITE_LAMP.get())
                 .add(ModBlocks.AZURITE_PRESSURE_PLATE.get())
                 .add(ModBlocks.PEDESTAL.get())
-                .add(ModBlocks.SMOOTH_STONE_WALL.get());
+                .add(ModBlocks.SMOOTH_STONE_WALL.get())
+                .add(ModBlocks.CRYSTALLIZER.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.AZURITE_ORE.get())

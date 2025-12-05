@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import net.silas.mccourse.fluid.ModFluids;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
@@ -55,6 +56,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.ICE_STAFF.get());
 
+                        output.accept(ModFluids.NETHER_FLUID_BUCKET.get());
+
 
                         output.accept(ModBlocks.AZURITE_BLOCK.get());
 
@@ -90,6 +93,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ORNAMENT.get());
                         output.accept(ModBlocks.CHRISTMAS_LIGHTS_COLORED.get());
                         output.accept(ModBlocks.CHRISTMAS_LIGHTS_WHITE.get());
+
+                        output.accept(ModBlocks.CRYSTALLIZER.get());
 
 
 

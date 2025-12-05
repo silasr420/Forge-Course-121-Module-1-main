@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.silas.mccourse.MCCourseMod;
 import net.silas.mccourse.block.ModBlocks;
+import net.silas.mccourse.fluid.ModFluids;
 import net.silas.mccourse.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -84,8 +85,14 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         basicItem(ModItems.UP_HOUSETOP_MUSIC_DISC.get());
 
+        basicItem(ModFluids.NETHER_FLUID_BUCKET.get());
 
+        horizontalBlockItem(ModBlocks.CRYSTALLIZER);
+    }
 
+    private ItemModelBuilder horizontalBlockItem(RegistryObject<Block> block) {
+        return getBuilder(block.getId().getPath()).parent(new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,
+                "block/" + block.getId().getPath())));
     }
 
     private ItemModelBuilder simpleBlockBlockItem(RegistryObject<Block> item) {

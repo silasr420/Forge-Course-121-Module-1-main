@@ -72,6 +72,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         leavesBlock(ModBlocks.COLORED_LEAVES);
 
+        horizontalBlock(ModBlocks.CRYSTALLIZER.get(), mcLoc("block/blast_furnace_side"),
+                modLoc("block/crystallizer_front"), mcLoc("block/blast_furnace_top"));
+
 
 
 

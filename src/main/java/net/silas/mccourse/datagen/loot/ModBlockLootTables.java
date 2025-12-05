@@ -102,6 +102,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.CHRISTMAS_LIGHTS_COLORED.get());
         this.dropSelf(ModBlocks.CHRISTMAS_LIGHTS_WHITE.get());
 
+        this.dropSelf(ModBlocks.CRYSTALLIZER.get());
+
 
 
     }

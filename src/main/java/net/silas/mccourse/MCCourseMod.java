@@ -9,10 +9,11 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.common.BiomeManager;
 import net.silas.mccourse.block.ModBlocks;
 import net.silas.mccourse.component.ModDataComponentTypes;
 import net.silas.mccourse.effect.ModEffects;
+import net.silas.mccourse.fluid.ModFluidTypes;
+import net.silas.mccourse.fluid.ModFluids;
 import net.silas.mccourse.item.ModCreativeModeTabs;
 import net.silas.mccourse.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -31,6 +32,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.silas.mccourse.potion.ModPotions;
 import net.silas.mccourse.sound.ModSounds;
 import net.silas.mccourse.util.ModItemProperties;
+import net.silas.mccourse.villager.ModVillagers;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -60,6 +62,11 @@ public class MCCourseMod {
 
         ModDataComponentTypes.register(modEventBus);
 
+        ModVillagers.register(modEventBus);
+
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
+
 
 
 
@@ -81,6 +88,7 @@ public class MCCourseMod {
             ComposterBlock.COMPOSTABLES.put(ModBlocks.COLORED_LEAVES.get(), 0.65f);
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BLUEBELL.getId(), ModBlocks.POTTED_BLUEBELL);
+
         });
     }
 
@@ -106,6 +114,7 @@ public class MCCourseMod {
             ModItemProperties.addCustomItemProperties();
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRISTMAS_LIGHTS_COLORED.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRISTMAS_LIGHTS_WHITE.get(), RenderType.cutout());
+
 
         }
 

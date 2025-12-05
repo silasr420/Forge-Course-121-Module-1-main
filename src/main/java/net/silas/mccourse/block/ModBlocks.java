@@ -114,6 +114,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHRISTMAS_LIGHTS_WHITE = registerBlock("christmas_lights_white",
             () -> new GlowLichenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLOW_LICHEN).lightLevel(state -> 10).strength(0.05f)));
 
+    public static final RegistryObject<Block> CRYSTALLIZER = registerBlock("crystallizer",
+            () -> new CrystallizerBlock(BlockBehaviour.Properties.of().strength(3).requiresCorrectToolForDrops()));
+
 
 
     public static void register(IEventBus eventBus) {
