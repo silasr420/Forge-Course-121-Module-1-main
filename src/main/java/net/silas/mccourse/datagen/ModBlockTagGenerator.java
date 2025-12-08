@@ -37,7 +37,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.AZURITE_PRESSURE_PLATE.get())
                 .add(ModBlocks.PEDESTAL.get())
                 .add(ModBlocks.SMOOTH_STONE_WALL.get())
-                .add(ModBlocks.CRYSTALLIZER.get());
+                .add(ModBlocks.CRYSTALLIZER.get())
+                .add(ModBlocks.NETHER_CRYSTAL.get());
+
+        this.tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(ModBlocks.ASPEN_LOG.get())
+                .add(ModBlocks.ASPEN_WOOD.get())
+                .add(ModBlocks.STRIPPED_ASPEN_LOG.get())
+                .add(ModBlocks.STRIPPED_ASPEN_WOOD.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.AZURITE_ORE.get())
@@ -69,6 +76,16 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .addTag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .addTag(BlockTags.MINEABLE_WITH_AXE);
+
+        this.tag(BlockTags.LOGS_THAT_BURN)
+                .add(ModBlocks.ASPEN_LOG.get())
+                .add(ModBlocks.ASPEN_WOOD.get())
+                .add(ModBlocks.STRIPPED_ASPEN_LOG.get())
+                .add(ModBlocks.STRIPPED_ASPEN_WOOD.get());
+
+
+
+
 
 
     }

@@ -5,6 +5,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraftforge.fml.common.Mod;
 import net.silas.mccourse.block.custom.OrnamentBlock;
 import net.silas.mccourse.block.ModBlocks;
 import net.silas.mccourse.block.custom.OnionCropBlock;
@@ -104,8 +105,17 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.CRYSTALLIZER.get());
 
+        this.dropSelf(ModBlocks.ASPEN_LOG.get());
+        this.dropSelf(ModBlocks.ASPEN_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_ASPEN_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_ASPEN_WOOD.get());
+        this.dropSelf(ModBlocks.ASPEN_PLANKS.get());
 
+        this.dropSelf(ModBlocks.ASPEN_SAPLING.get());
+        this.add(ModBlocks.ASPEN_LEAVES.get(), block ->
+                createLeavesDrops(block, ModBlocks.ASPEN_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
+        this.dropSelf(ModBlocks.NETHER_CRYSTAL.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

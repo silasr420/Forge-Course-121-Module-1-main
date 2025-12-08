@@ -1,6 +1,12 @@
 package net.silas.mccourse.block;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.silas.mccourse.MCCourseMod;
 import net.silas.mccourse.block.custom.OrnamentBlock;
 import net.silas.mccourse.block.custom.*;
@@ -17,6 +23,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.silas.mccourse.sound.ModSounds;
+import net.silas.mccourse.worldgen.tree.ModTreeGrowers;
 
 import java.util.function.Supplier;
 
@@ -116,6 +123,61 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CRYSTALLIZER = registerBlock("crystallizer",
             () -> new CrystallizerBlock(BlockBehaviour.Properties.of().strength(3).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> ASPEN_LOG = registerBlock("aspen_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_LOG)));
+    public static final RegistryObject<Block> ASPEN_WOOD = registerBlock("aspen_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_WOOD)));
+    public static final RegistryObject<Block> STRIPPED_ASPEN_LOG = registerBlock("stripped_aspen_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_BIRCH_LOG)));
+    public static final RegistryObject<Block> STRIPPED_ASPEN_WOOD = registerBlock("stripped_aspen_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_BIRCH_WOOD)));
+
+    public static final RegistryObject<Block> ASPEN_PLANKS = registerBlock("aspen_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
+
+    public static final RegistryObject<Block> ASPEN_LEAVES = registerBlock("aspen_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
+    public static final RegistryObject<Block> ASPEN_SAPLING = registerBlock("aspen_sapling",
+            () -> new SaplingBlock(ModTreeGrowers.ASPEN, BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_SAPLING)));
+
+    public static final RegistryObject<Block> NETHER_CRYSTAL = registerBlock(
+            "nether_crystal",
+            () -> new AmethystClusterBlock(
+                    7.0F,
+                    3.0F,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER)));
+
 
 
 

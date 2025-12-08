@@ -96,6 +96,17 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.CRYSTALLIZER.get());
 
+                        output.accept(ModBlocks.ASPEN_LOG.get());
+                        output.accept(ModBlocks.ASPEN_WOOD.get());
+                        output.accept(ModBlocks.STRIPPED_ASPEN_WOOD.get());
+                        output.accept(ModBlocks.STRIPPED_ASPEN_LOG.get());
+
+                        output.accept(ModBlocks.ASPEN_PLANKS.get());
+                        output.accept(ModBlocks.ASPEN_SAPLING.get());
+                        output.accept(ModBlocks.ASPEN_LEAVES.get());
+
+                        output.accept(ModBlocks.NETHER_CRYSTAL.get());
+
 
 
 

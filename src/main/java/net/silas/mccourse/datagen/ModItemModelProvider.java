@@ -88,6 +88,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModFluids.NETHER_FLUID_BUCKET.get());
 
         horizontalBlockItem(ModBlocks.CRYSTALLIZER);
+
+
+        saplingItem(ModBlocks.ASPEN_SAPLING);
+    }
+
+    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder horizontalBlockItem(RegistryObject<Block> block) {

@@ -1,5 +1,6 @@
 package net.silas.mccourse.util;
 
+import net.minecraft.core.registries.Registries;
 import net.silas.mccourse.MCCourseMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -22,9 +23,12 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
+        public static final TagKey<Item> ASPEN_LOGS = createTag("aspen_logs");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, name));
         }
     }
+
+
 }

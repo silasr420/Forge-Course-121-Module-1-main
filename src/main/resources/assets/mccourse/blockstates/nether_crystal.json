@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "mccourse:block/nether_crystal",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "mccourse:block/nether_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mccourse:block/nether_crystal",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "mccourse:block/nether_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "mccourse:block/nether_crystal"
+    },
+    "facing=west": {
+      "model": "mccourse:block/nether_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -123,9 +123,19 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.DECIBEL_SMITHING_TEMPLATE.get());
 
 
+        this.tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.ASPEN_LOG.get().asItem())
+                .add(ModBlocks.ASPEN_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_ASPEN_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_ASPEN_WOOD.get().asItem());
 
+        this.tag(ItemTags.PLANKS)
+                .add(ModBlocks.ASPEN_PLANKS.get().asItem());
 
-
-
+        this.tag(ModTags.Items.ASPEN_LOGS)
+                .add(ModBlocks.ASPEN_LOG.get().asItem())
+                .add(ModBlocks.ASPEN_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_ASPEN_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_ASPEN_WOOD.get().asItem());
     }
 }

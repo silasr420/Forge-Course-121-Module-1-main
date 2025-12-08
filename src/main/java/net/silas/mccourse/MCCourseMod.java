@@ -12,6 +12,7 @@ import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.silas.mccourse.block.ModBlocks;
 import net.silas.mccourse.component.ModDataComponentTypes;
 import net.silas.mccourse.effect.ModEffects;
+import net.silas.mccourse.enchantment.ModEnchantmentEffects;
 import net.silas.mccourse.fluid.ModFluidTypes;
 import net.silas.mccourse.fluid.ModFluids;
 import net.silas.mccourse.item.ModCreativeModeTabs;
@@ -67,6 +68,8 @@ public class MCCourseMod {
         ModFluidTypes.register(modEventBus);
         ModFluids.register(modEventBus);
 
+        ModEnchantmentEffects.register(modEventBus);
+
 
 
 
@@ -114,6 +117,8 @@ public class MCCourseMod {
             ModItemProperties.addCustomItemProperties();
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRISTMAS_LIGHTS_COLORED.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHRISTMAS_LIGHTS_WHITE.get(), RenderType.cutout());
+
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHER_CRYSTAL.get(), RenderType.cutout());
 
 
         }

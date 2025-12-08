@@ -75,9 +75,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.CRYSTALLIZER.get(), mcLoc("block/blast_furnace_side"),
                 modLoc("block/crystallizer_front"), mcLoc("block/blast_furnace_top"));
 
+        logBlock(((RotatedPillarBlock) ModBlocks.ASPEN_LOG.get()));
+        axisBlock(((RotatedPillarBlock) ModBlocks.ASPEN_WOOD.get()), blockTexture(ModBlocks.ASPEN_LOG.get()),
+                blockTexture(ModBlocks.ASPEN_LOG.get()));
+        axisBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_ASPEN_WOOD.get()), blockTexture(ModBlocks.STRIPPED_ASPEN_LOG.get()),
+                blockTexture(ModBlocks.STRIPPED_ASPEN_LOG.get()));
+        logBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_ASPEN_LOG.get()));
 
+        blockItem(ModBlocks.ASPEN_LOG);
+        blockItem(ModBlocks.ASPEN_WOOD);
+        blockItem(ModBlocks.STRIPPED_ASPEN_LOG);
+        blockItem(ModBlocks.STRIPPED_ASPEN_WOOD);
 
+        blockWithItem(ModBlocks.ASPEN_PLANKS);
 
+        leavesBlock(ModBlocks.ASPEN_LEAVES);
+
+        saplingBlock(ModBlocks.ASPEN_SAPLING);
 
     }
 
@@ -85,6 +99,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(blockRegistryObject.get(),
                 models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
                         "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
 

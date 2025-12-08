@@ -19,7 +19,7 @@ public class ModFluidTypes {
 
     public static final RegistryObject<FluidType> NETHER_FLUID_TYPE = registerFluidType("nether_portal_fluid",
             new BaseFluidType(WATER_STILL_RL, WATER_FLOWING_RL, WATER_OVERLAY_RL, 0xFFFFFF,
-                    new Vector3f(0.8901961f, 0.7176471f, 0.08235294f),
+                    new Vector3f(0.40784313f, 0.1372549f, 0.6392157f),
                     FluidType.Properties.create().viscosity(10).canConvertToSource(true).canSwim(false).motionScale(0.1f)));
 
     private static RegistryObject<FluidType> registerFluidType(String name, FluidType fluidType){

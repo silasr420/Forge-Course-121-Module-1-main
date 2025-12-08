@@ -1,6 +1,7 @@
 package net.silas.mccourse.datagen;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -211,6 +212,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PURPLE_DYE)
                 .requires(ModBlocks.BLUEBELL.get())
                 .unlockedBy("has_bluebell", has(ModBlocks.BLUEBELL.get())).save(recipeOutput);
+
+
+        woodFromLogs(recipeOutput, ModBlocks.ASPEN_WOOD.get(), ModBlocks.ASPEN_LOG.get());
+        woodFromLogs(recipeOutput, ModBlocks.STRIPPED_ASPEN_WOOD.get(), ModBlocks.STRIPPED_ASPEN_LOG.get());
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ASPEN_PLANKS.get(), 4)
+                .requires(ModTags.Items.ASPEN_LOGS)
+                .unlockedBy("has_aspen_log", has(ModBlocks.ASPEN_LOG.get())).save(recipeOutput);
+
+
+
+
 
 
 

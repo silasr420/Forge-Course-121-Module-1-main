@@ -84,6 +84,18 @@
 
   "block.mccourse.crystallizer": "Crystallizer",
 
+  "block.mccourse.aspen_log": "Aspen Log",
+  "block.mccourse.aspen_wood": "Aspen Wood",
+  "block.mccourse.stripped_aspen_log": "Stripped Aspen Log",
+  "block.mccourse.stripped_aspen_wood": "Stripped Aspen Wood",
+
+  "block.mccourse.aspen_planks": "Aspen Planks",
+  "block.mccourse.aspen_sapling": "Aspen Sapling",
+  "block.mccourse.aspen_leaves": "Aspen Leaves",
+
+  "block.mccourse.nether_crystal": "Nether Crystal",
+
+
   "block.minecraft.waxed_exposed_cut_copper_stairs": "Waxed Lightly Weathered Cut Copper Stairs",
 
 
@@ -113,6 +125,8 @@
   "painting.mccourse.world.title": "World",
   "painting.mccourse.world.author": "NanoAttack",
   "painting.mccourse.wanderer.title": "Wanderer",
-  "painting.mccourse.wanderer.author": "Platinum617"
+  "painting.mccourse.wanderer.author": "Platinum617",
+
+  "enchantment.mccourse.lightning_striker": "Lighting Striker"
 
 }
